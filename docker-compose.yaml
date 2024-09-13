@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SWAGGER_JSON: /app/openapi.yaml
+      SWAGGER_URLS: '[{"url": "/app/api1.yaml", "name": "API 1"}, {"url": "/app/api2.yaml", "name": "API 2"}]'
     volumes:
       - ./swagger:/app
     networks:

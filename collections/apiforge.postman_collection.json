@@ -1,63 +1,62 @@
 {
-    "info": {
-      "name": "APIForge",
-      "description": "Colección de pruebas para APIForge",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    },
-    "item": [
-      {
-        "name": "Obtener lista de recursos con token JWT",
-        "request": {
-          "method": "GET",
-          "header": [
-            {
-              "key": "Authorization",
-              "value": "Bearer VALID_JWT_TOKEN",
-              "type": "text"
-            }
-          ],
-          "url": {
-            "raw": "http://localhost:4010/resources",
-            "protocol": "http",
-            "host": ["localhost"],
-            "port": "4010",
-            "path": ["resources"]
+  "info": {
+    "name": "APIForge",
+    "description": "Colección de pruebas para APIForge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Obtener lista de recursos API 1 con token JWT",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer VALID_JWT_TOKEN",
+            "type": "text"
           }
-        }
-      },
-      {
-        "name": "Obtener lista de recursos sin token",
-        "request": {
-          "method": "GET",
-          "url": {
-            "raw": "http://localhost:4010/resources",
-            "protocol": "http",
-            "host": ["localhost"],
-            "port": "4010",
-            "path": ["resources"]
-          }
-        }
-      },
-      {
-        "name": "Obtener lista de recursos con API Key",
-        "request": {
-          "method": "GET",
-          "header": [
-            {
-              "key": "X-API-Key",
-              "value": "VALID_API_KEY",
-              "type": "text"
-            }
-          ],
-          "url": {
-            "raw": "http://localhost:4010/resources",
-            "protocol": "http",
-            "host": ["localhost"],
-            "port": "4010",
-            "path": ["resources"]
-          }
+        ],
+        "url": {
+          "raw": "http://localhost:4010/api1/resources",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4010",
+          "path": ["api1", "resources"]
         }
       }
-    ]
-  }
-  
+    },
+    {
+      "name": "Obtener lista de recursos API 2 sin token",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4010/api2/resources",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4010",
+          "path": ["api2", "resources"]
+        }
+      }
+    },
+    {
+      "name": "Obtener lista de recursos API 1 con API Key",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "VALID_API_KEY",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:4010/api1/resources",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4010",
+          "path": ["api1", "resources"]
+        }
+      }
+    }
+  ]
+}
