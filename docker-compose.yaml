@@ -14,7 +14,7 @@ services:
   prism-mock:
     image: stoplight/prism:4
     container_name: prism-mock
-    command: mock -h 0.0.0.0 /app/openapi.yaml
+    command: mock -h 0.0.0.0 /app/api1.yaml
     ports:
       - "4010:4010"
     volumes:
