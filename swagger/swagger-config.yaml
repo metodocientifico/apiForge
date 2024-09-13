@@ -1,0 +1,5 @@
+urls:
+  - url: "/app/api1.yaml"
+    name: "API 1"
+  - url: "/app/api2.yaml"
+    name: "API 2"
