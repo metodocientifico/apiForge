@@ -7,7 +7,7 @@
 
 - **Swagger UI**: Interfaz gráfica para visualizar y probar tus APIs.
 - **Prism Mock Server**: Simula las respuestas de tus APIs basadas en tus archivos OpenAPI.
-- **Soporte para múltiples APIs**: Usa múltiples archivos OpenAPI (.yaml) con configuración de `SWAGGER_URLS`.
+- **Soporte para múltiples APIs**: Usa múltiples archivos OpenAPI (.yaml) gestionados mediante el archivo `swagger-config.yaml`.
 - **Pruebas automatizadas**: Scripts Bash para ejecutar pruebas básicas de API.
 - **Integración con Postman/Insomnia**: Colecciones para pruebas interactivas.
 - **Logs**: Logs detallados de las solicitudes mockeadas para depuración.
@@ -19,7 +19,8 @@ apiforge/
 ├── docker-compose.yml         # Definición de servicios Docker
 ├── swagger/                   # Carpeta para los archivos OpenAPI y configuración de Swagger
 │   ├── api1.yaml              # Definición de la primera API en formato OpenAPI
-│   └── api2.yaml              # Definición de la segunda API en formato OpenAPI
+│   ├── api2.yaml              # Definición de la segunda API en formato OpenAPI
+│   └── swagger-config.yaml    # Archivo de configuración para manejar múltiples APIs
 ├── tests/                     # Scripts de pruebas automatizadas
 │   └── test_api.sh            # Script Bash para pruebas de API
 ├── collections/               # Colecciones de Postman/Insomnia para pruebas interactivas
