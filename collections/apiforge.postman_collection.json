@@ -1,62 +1,127 @@
 {
   "info": {
-    "name": "APIForge",
-    "description": "Colección de pruebas para APIForge",
+    "name": "APIForge Test Collection",
+    "description": "API collection for testing CRUD operations with Prism",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Obtener lista de recursos API 1 con token JWT",
+      "name": "Obtener lista de recursos",
       "request": {
         "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4010/resources",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4010",
+          "path": [
+            "resources"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear un nuevo recurso",
+      "request": {
+        "method": "POST",
         "header": [
           {
-            "key": "Authorization",
-            "value": "Bearer VALID_JWT_TOKEN",
+            "key": "Content-Type",
+            "value": "application/json",
             "type": "text"
           }
         ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Recurso 3\",\n  \"descripcion\": \"Descripci\u00f3n del recurso 3\"\n}"
+        },
         "url": {
-          "raw": "http://localhost:4010/api1/resources",
+          "raw": "http://localhost:4010/resources",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "4010",
-          "path": ["api1", "resources"]
+          "path": [
+            "resources"
+          ]
         }
-      }
+      },
+      "response": []
     },
     {
-      "name": "Obtener lista de recursos API 2 sin token",
+      "name": "Obtener un recurso por ID",
       "request": {
         "method": "GET",
+        "header": [],
         "url": {
-          "raw": "http://localhost:4010/api2/resources",
+          "raw": "http://localhost:4010/resources/1",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "4010",
-          "path": ["api2", "resources"]
+          "path": [
+            "resources",
+            "1"
+          ]
         }
-      }
+      },
+      "response": []
     },
     {
-      "name": "Obtener lista de recursos API 1 con API Key",
+      "name": "Actualizar un recurso por ID",
       "request": {
-        "method": "GET",
+        "method": "PUT",
         "header": [
           {
-            "key": "X-API-Key",
-            "value": "VALID_API_KEY",
+            "key": "Content-Type",
+            "value": "application/json",
             "type": "text"
           }
         ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Recurso actualizado\",\n  \"descripcion\": \"Descripci\u00f3n actualizada del recurso\"\n}"
+        },
         "url": {
-          "raw": "http://localhost:4010/api1/resources",
+          "raw": "http://localhost:4010/resources/1",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "4010",
-          "path": ["api1", "resources"]
+          "path": [
+            "resources",
+            "1"
+          ]
         }
-      }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar un recurso por ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4010/resources/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4010",
+          "path": [
+            "resources",
+            "1"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

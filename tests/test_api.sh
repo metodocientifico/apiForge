@@ -1,20 +1,29 @@
+
 #!/bin/bash
 
-# Test para obtener lista de recursos de API 1 con un token Bearer correcto
-echo "Probando API 1 de recursos con token Bearer correcto..."
-curl -H "Authorization: Bearer VALID_JWT_TOKEN" http://localhost:4010/api1/resources
+# Test: Obtener lista de recursos
+echo "Probando: Obtener lista de recursos (GET)"
+curl -X GET "http://localhost:4010/resources" -H "accept: application/json"
+echo -e "\n"
 
-# Test para obtener lista de recursos de API 2 sin token (debería devolver 401)
-echo "Probando API 2 de recursos sin token..."
-curl http://localhost:4010/api2/resources
+# Test: Crear un nuevo recurso
+echo "Probando: Crear un nuevo recurso (POST)"
+curl -X POST "http://localhost:4010/resources" -H "Content-Type: application/json" -d '{"nombre": "Recurso 3", "descripcion": "Descripción del recurso 3"}'
+echo -e "\n"
 
-# Test para obtener lista de recursos de API 1 con API Key correcta
-echo "Probando API 1 de recursos con API Key correcta..."
-curl -H "X-API-Key: VALID_API_KEY" http://localhost:4010/api1/resources
+# Test: Obtener un recurso por ID (GET)
+echo "Probando: Obtener un recurso por ID (GET)"
+curl -X GET "http://localhost:4010/resources/1" -H "accept: application/json"
+echo -e "\n"
 
-# Test para obtener lista de recursos de API 2 con API Key incorrecta (debería devolver 401)
-echo "Probando API 2 de recursos con API Key incorrecta..."
-curl -H "X-API-Key: INVALID_API_KEY" http://localhost:4010/api2/resources
+# Test: Actualizar un recurso por ID (PUT)
+echo "Probando: Actualizar un recurso por ID (PUT)"
+curl -X PUT "http://localhost:4010/resources/1" -H "Content-Type: application/json" -d '{"nombre": "Recurso actualizado", "descripcion": "Descripción actualizada del recurso"}'
+echo -e "\n"
 
-# Fin del script de pruebas
-echo "Pruebas finalizadas."
+# Test: Eliminar un recurso por ID (DELETE)
+echo "Probando: Eliminar un recurso por ID (DELETE)"
+curl -X DELETE "http://localhost:4010/resources/1"
+echo -e "\n"
+
+echo "Pruebas completadas."

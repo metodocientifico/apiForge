@@ -1,0 +1,106 @@
+openapi: 3.0.0
+info:
+  title: Other API
+  version: 1.0.0
+  description: Esta es una API adicional para la gestión de productos.
+
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /products:
+    get:
+      summary: Obtener lista de productos
+      description: Devuelve una lista de todos los productos disponibles.
+      responses:
+        '200':
+          description: Lista de productos obtenida exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+              example:
+                - id: 101
+                  name: "Producto A"
+                - id: 102
+                  name: "Producto B"
+
+    post:
+      summary: Crear un nuevo producto
+      description: Permite crear un nuevo producto proporcionando los detalles.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Producto creado exitosamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+              example:
+                id: 103
+                name: "Producto C"
+        '400':
+          description: Datos inválidos.
+
+  /products/{id}:
+    get:
+      summary: Obtener un producto por ID
+      description: Devuelve los detalles de un producto específico.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto obtenido correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+              example:
+                id: 101
+                name: "Producto A"
+        '404':
+          description: Producto no encontrado.
+
+    delete:
+      summary: Eliminar un producto
+      description: Permite eliminar un producto existente basado en su ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Producto eliminado exitosamente.
+        '404':
+          description: Producto no encontrado.

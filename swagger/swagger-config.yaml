@@ -1,5 +1,5 @@
 urls:
-  - url: "/app/api1.yaml"
-    name: "API 1"
-  - url: "/app/api2.yaml"
-    name: "API 2"
+  - url: "/app/api-test.yaml"
+    name: "API for Testing with Prism"
+  - url: "/app/other-api.yaml"
+    name: "Other API"

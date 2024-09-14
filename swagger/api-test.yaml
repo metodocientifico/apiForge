@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: API for Testing with Prism
+  version: 1.0.0
+  description: API para la simulación de recursos con operaciones CRUD.
+
+servers:
+  - url: http://localhost:4010
+
+paths:
+  /resources:
+    get:
+      summary: Obtener lista de recursos
+      description: Devuelve una lista de recursos.
+      responses:
+        '200':
+          description: Lista de recursos obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nombre:
+                      type: string
+                    descripcion:
+                      type: string
+              example:
+                - id: 1
+                  nombre: "Recurso 1"
+                  descripcion: "Descripción del recurso 1"
+                - id: 2
+                  nombre: "Recurso 2"
+                  descripcion: "Descripción del recurso 2"
+        '404':
+          description: No se encontraron recursos.
+
+    post:
+      summary: Crear un nuevo recurso
+      description: Crea un recurso en la colección.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+      responses:
+        '201':
+          description: Recurso creado correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nombre:
+                    type: string
+                  descripcion:
+                    type: string
+              example:
+                id: 3
+                nombre: "Recurso 3"
+                descripcion: "Descripción del recurso 3"
+        '400':
+          description: Datos inválidos.
+
+  /resources/{id}:
+    get:
+      summary: Obtener un recurso por ID
+      description: Devuelve un recurso específico según el ID proporcionado.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Recurso obtenido correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nombre:
+                    type: string
+                  descripcion:
+                    type: string
+              example:
+                id: 1
+                nombre: "Recurso 1"
+                descripcion: "Descripción del recurso 1"
+        '404':
+          description: Recurso no encontrado.
+
+    put:
+      summary: Actualizar un recurso por ID
+      description: Actualiza los detalles de un recurso específico.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+      responses:
+        '200':
+          description: Recurso actualizado correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nombre:
+                    type: string
+                  descripcion:
+                    type: string
+              example:
+                id: 1
+                nombre: "Recurso actualizado"
+                descripcion: "Descripción actualizada del recurso"
+        '400':
+          description: Datos inválidos.
+        '404':
+          description: Recurso no encontrado.
+
+    delete:
+      summary: Eliminar un recurso por ID
+      description: Elimina un recurso según el ID proporcionado.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Recurso eliminado correctamente.
+        '404':
+          description: Recurso no encontrado.
