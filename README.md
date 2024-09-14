@@ -1,75 +1,76 @@
 
-# apiForge
+# APIForge
 
-**apiForge** es una solución para la creación, simulación y prueba de APIs basadas en OpenAPI. Proporciona un entorno fácilmente desplegable con Swagger UI para la documentación y Prism para simular respuestas de las APIs.
+**APIForge** is a solution for creating, simulating, and testing APIs based on OpenAPI. It provides an easily deployable environment with Swagger UI for documentation and Prism for simulating API responses.
 
-## Estructura del Proyecto
+## Project Structure
 
 ```bash
 apiForge/
-├── collections/                 # Colecciones de Postman
-│   └── apiforge.postman_collection.json  # Colección de Postman para pruebas
-├── swagger/                     # Definiciones de las APIs
-│   ├── api-test.yaml            # API principal para simulaciones CRUD
-│   ├── other-api.yaml           # API adicional de productos
-│   └── swagger-config.yaml      # Configuración para Swagger UI
-├── tests/                       # Scripts de pruebas automatizadas
-│   └── test_api.sh              # Script para pruebas con curl
-├── docker-compose.yaml          # Configuración de Docker Compose
-├── LICENSE                      # Licencia del proyecto
-└── README.md                    # Documentación del proyecto
+├── collections/                 # Postman/Insomnia collections
+│   └── api-test.collection.json # Postman/Insomnia collection for api-test.yaml
+├── swagger/                     # API definitions
+│   ├── api-test.yaml            # Main API for CRUD simulations
+│   ├── other-api.yaml           # Additional API for products
+│   └── swagger-config.yaml      # Configuration for Swagger UI
+├── tests/                       # Automated test scripts
+│   └── test_api.sh              # Script for tests using curl
+├── docker-compose.yaml          # Docker Compose configuration
+├── LICENSE                      # Project license
+└── README.md                    # Project documentation
 ```
 
-## Requisitos
+## Requirements
 
-Asegúrate de tener instalados los siguientes requisitos:
+Make sure you have the following installed:
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
-## Configuración y Ejecución
+## Setup and Execution
 
-1. **Clonar el repositorio**:
+1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/tu_usuario/apiforge.git
+   git clone https://github.com/your_user/apiforge.git
    cd apiforge
    ```
 
-2. **Levantar los servicios con Docker Compose**:
+2. **Start the services with Docker Compose**:
 
-   Ejecuta el siguiente comando para iniciar **Swagger UI** y el **Prism Mock Server**:
+   Run the following command to start **Swagger UI**, **Prism Mock Server**, and **Swagger Editor**:
 
    ```bash
    docker-compose up -d
    ```
 
-   - **Swagger UI** estará disponible en `http://localhost:8080`.
-   - **Prism Mock Server** estará en `http://localhost:4010`.
+   - **Swagger UI** will be available at `http://localhost:8080`.
+   - **Prism Mock Server** will be available at `http://localhost:4010`.
+   - **Swagger Editor** will be available at `http://localhost:8081` (configured to load `api-test.yaml` by default).
 
-3. **Verificar los logs**:
+3. **Verify the logs**:
 
-   Si deseas ver los logs del servidor mock, puedes ejecutar el siguiente comando:
+   To check the logs of the mock server, you can run:
 
    ```bash
    docker logs prism-mock > ./logs/prism.log
    ```
 
-## Uso de los Servicios
+## Usage of Services
 
 ### Swagger UI
 
-Puedes acceder a la documentación interactiva de tu API en **Swagger UI** desde la siguiente URL:
+You can access the interactive documentation of your API in **Swagger UI** via:
 
 - [http://localhost:8080](http://localhost:8080)
 
-En esta interfaz, podrás visualizar y probar los diferentes endpoints definidos en los archivos de API.
+Here, you can visualize and test the different endpoints defined in your API files.
 
 ### Mock Server (Prism)
 
-El servidor mock está disponible en `http://localhost:4010`. Puedes hacer solicitudes a los endpoints definidos en `api-test.yaml` y `other-api.yaml`.
+The mock server is available at `http://localhost:4010`. You can send requests to the endpoints defined in `api-test.yaml` and `other-api.yaml`.
 
-Por ejemplo, puedes probar los siguientes endpoints:
+Example:
 
 ```bash
 curl http://localhost:4010/resources
@@ -79,24 +80,34 @@ curl http://localhost:4010/resources
 curl http://localhost:4010/products
 ```
 
-### Tests Automatizados
+### Automated Tests
 
-En la carpeta `tests/` se encuentra el script Bash `test_api.sh` para ejecutar pruebas automatizadas. Puedes ejecutarlo con el siguiente comando:
+The `tests/` folder contains the Bash script `test_api.sh` for running automated tests. You can execute it with the following command:
 
 ```bash
 bash tests/test_api.sh
 ```
 
-Este script realizará varias pruebas en la API, incluyendo operaciones **GET**, **POST**, **PUT** y **DELETE**.
+This script performs several operations on the API, including **GET**, **POST**, **PUT**, and **DELETE**.
 
-### Colección de Postman
+### Postman Collection
 
-En la carpeta `collections/` se encuentra una colección predefinida para **Postman**. Puedes importarla directamente en **Postman** para realizar pruebas interactivas.
+The `collections/` folder contains a pre-defined Postman collection that you can import directly into **Postman** for interactive testing.
 
-## Contribuciones
+## Swagger Editor
 
-Si tienes ideas para mejorar **apiForge** o encuentras algún problema, no dudes en abrir un issue o enviar un pull request.
+Swagger Editor has been added to the project to allow direct editing of the API YAML files from a web interface. By default, it loads the `api-test.yaml` file.
 
-## Licencia
+You can access Swagger Editor at:
 
-Este proyecto está bajo la licencia MIT. Puedes consultar el archivo [LICENSE](LICENSE) para más detalles.
+- [http://localhost:8081](http://localhost:8081)
+
+For now, Swagger Editor is configured to load `api-test.yaml` by default. If you need to switch to another file, you can modify the `docker-compose.yml` or add multiple instances of Swagger Editor.
+
+## Contributions
+
+If you have ideas to improve **APIForge** or encounter any issues, feel free to open an issue or send a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
