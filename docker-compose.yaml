@@ -20,7 +20,6 @@ services:
       - "4010:4010"
     volumes:
       - ./swagger:/app
-      - ./logs:/var/log/prism
     networks:
       - api-network
 
