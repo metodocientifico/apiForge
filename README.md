@@ -1,7 +1,7 @@
 
-# APIForge
+# apiForge
 
-**APIForge** es una solución para la creación, simulación y prueba de APIs basadas en OpenAPI. Proporciona un entorno fácilmente desplegable con Swagger UI para la documentación y Prism para simular respuestas de las APIs.
+**apiForge** es una solución para la creación, simulación y prueba de APIs basadas en OpenAPI. Proporciona un entorno fácilmente desplegable con Swagger UI para la documentación y Prism para simular respuestas de las APIs.
 
 ## Estructura del Proyecto
 
@@ -95,7 +95,7 @@ En la carpeta `collections/` se encuentra una colección predefinida para **Post
 
 ## Contribuciones
 
-Si tienes ideas para mejorar **APIForge** o encuentras algún problema, no dudes en abrir un issue o enviar un pull request.
+Si tienes ideas para mejorar **apiForge** o encuentras algún problema, no dudes en abrir un issue o enviar un pull request.
 
 ## Licencia
 
