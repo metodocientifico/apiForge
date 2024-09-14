@@ -1,7 +1,7 @@
 
-# APIForge
+# apiForge
 
-**APIForge** is a solution for creating, simulating, and testing APIs based on OpenAPI. It provides an easily deployable environment with Swagger UI for documentation and Prism for simulating API responses.
+**apiForge** is a solution for creating, simulating, and testing APIs based on OpenAPI. It provides an easily deployable environment with Swagger UI for documentation and Prism for simulating API responses.
 
 ## Project Structure
 
@@ -106,7 +106,7 @@ For now, Swagger Editor is configured to load `api-test.yaml` by default. If you
 
 ## Contributions
 
-If you have ideas to improve **APIForge** or encounter any issues, feel free to open an issue or send a pull request.
+If you have ideas to improve **apiForge** or encounter any issues, feel free to open an issue or send a pull request.
 
 ## License
 
